@@ -1473,7 +1473,7 @@ eqNode3.gain.value = -4.5; // Adjust the gain as needed
 const eqNode4 = audioContext.createBiquadFilter();
 eqNode4.type = 'peaking';
 eqNode4.frequency.value = 5000; 
-eqNode4.gain.value = 2.3; // Adjust the gain as needed
+eqNode4.gain.value = 2.4; // Adjust the gain as needed
 
 const eqNode5 = audioContext.createBiquadFilter();
 eqNode5.type = 'lowpass';
@@ -1510,7 +1510,7 @@ filter4.connect(eqNode3);
 const eqNode6 = audioContext.createBiquadFilter();
 eqNode6.type = 'peaking';
 eqNode6.frequency.value = 7700; // Adjust the frequency as needed
-eqNode6.gain.value = 1.5; // Adjust the gain as needed
+eqNode6.gain.value = 1.6; // Adjust the gain as needed
 const eqNode7 = audioContext.createBiquadFilter();
 eqNode7.type = 'peaking';
 eqNode7.frequency.value = 9000; // Adjust the frequency as needed
