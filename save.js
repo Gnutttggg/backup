@@ -34,7 +34,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Create the audio intro element
       const audioIntroElement = document.createElement("p");
       audioIntroElement.classList.add("keyword");
-      audioIntroElement.style.fontSize = "20px";
+      audioIntroElement.style.fontSize = "24px";
       audioIntroElement.style.fontFamily = "sans-serif";
 
       // Set the innerHTML of the audio intro element
@@ -51,7 +51,8 @@ const links = track.links;
 const rhythmDisplay = `<strong>${rhythm}</strong>`;
 const colorDisplay = `<strong>${color}</strong>`;
 const intensityDisplay = `<strong>${intensity}</strong>`;
-const chordsDisplay = chords.join(" - "); // Join the chord values with a separator
+const instrumentDisplay = `<strong>${instrument}</strong>`;
+const chordsDisplay = chords.join(", "); // Join the chord values with a separator
 
 const chordsDisplayElement = document.createElement("span");
 chordsDisplayElement.style.fontWeight = "bold";
@@ -60,7 +61,8 @@ chordsDisplayElement.style.fontStyle = "italic";
 chordsDisplayElement.style.color = "#666666";
 chordsDisplayElement.innerHTML = chordsDisplay;
 
-audioIntroElement.innerHTML = `${rhythmDisplay}, ${intensityDisplay}, ${colorDisplay}, ${instrument}<br>`;
+audioIntroElement.innerHTML = `${rhythmDisplay}&nbsp;&nbsp;&nbsp;${intensityDisplay}&nbsp;&nbsp;&nbsp;${colorDisplay}&nbsp;&nbsp;&nbsp;${instrumentDisplay}<br>`;
+
 audioIntroElement.appendChild(chordsDisplayElement);
 
 
@@ -70,8 +72,9 @@ newGridItem.appendChild(audioIntroContainer);
 newGridItem.dataset.genre = genre;
 newGridItem.dataset.key = keykey;
 newGridItem.dataset.rhythm = rhythm;
-newGridItem.dataset.color = color;
 newGridItem.dataset.intensity = intensity;
+newGridItem.dataset.color = color;
+
 newGridItem.dataset.instrument = instrument;
 newGridItem.dataset.chords = JSON.stringify(chords);
 
