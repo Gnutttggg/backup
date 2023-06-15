@@ -51,6 +51,7 @@
 
 <audio id="demoPlayer" controls></audio>
 
+
 <style>
     #demoPlayer::-webkit-media-controls-play-button,
     #demoPlayer::-webkit-media-controls-mute-button {
@@ -88,7 +89,7 @@
 
 <div class="allfilters">
   <h2 id="filterHeading">Find tracks</h2>
-<h2 id="specificFilterHeading">Specific intro description: <span class="question-icon">?</span></h2>
+<h1 id="specificFilterHeading">The first second: <span class="question-icon">?</span></h1>
 
 
 <div class="intro-container">
@@ -99,10 +100,18 @@
   <option value="">Random</option>
   <option value="Dynamic">Dynamic</option>
   <option value="Smooth">Smooth</option>
-  <option value="Wavy">Wavy</option>
+  <option value="Swingy">Swingy</option>
 </select>
 </div>
-
+<div class="intensityfilter-container">
+<label for="intensityfilter">Sound:</label>
+<select id="intensityfilter">
+  <option value="">Random</option>
+  <option value="Dirty">Dirty</option>
+  <option value="Clean">Clean</option>
+  <option value="Muted">Muted</option>
+</select>
+</div>
 <div class="colorfilter-container">
 <label for="colorfilter">Color:</label>
 <select id="colorfilter">
@@ -110,20 +119,11 @@
   <option value="Warm">Warm</option>
   <option value="Cold">Cold</option>
   <option value="Dark">Dark</option>
-  <option value="Colorful">Colorful</option>
-  <option value="Stark">Stark</option>
+  <option value="Bright">Bright</option>
 </select>
 </div>
 
-<div class="intensityfilter-container">
-<label for="intensityfilter">Intensity:</label>
-<select id="intensityfilter">
-  <option value="">Random</option>
-  <option value="Aggressive">Aggressive</option>
-  <option value="Soft">Soft</option>
-  <option value="Moderate">Moderate</option>
-</select>
-</div>
+
 
 <div class="instrumentfilter-container">
 <label for="instrumentfilter">Instrument:</label>
@@ -168,7 +168,7 @@
 
 
 
-<h2 id="generalFilterHeading">Genre:</h2>
+<h2 id="generalFilterHeading">Genre(s):</h2>
 <div class="genrefilter-container">
 
 <select id="genreselect">
@@ -202,6 +202,101 @@
 
 </select>
 </div>
+<div class="genrefilter-container2">
+
+<select id="genreselect2">
+  <option value=""></option>
+  <option value="RnB">RnB</option>
+  <option value="Rock">Rock</option>
+  <option value="Pop">Pop</option>
+  <option value="Hip-Hop">Hip-Hop</option>
+  <option value="Trap">Trap</option>
+  <option value="Electronic">Electronic</option>
+  <option value="Reggae">Reggae</option>
+  <option value="Latin">Latin</option>
+  <option value="Funk/Soul">Funk/Soul</option>
+  <option value="Country">Country</option>
+  <option value="Afro Beat">Afro Beat</option>
+  <option value="Folk">Folk</option>
+  <option value="Blues">Blues</option>
+
+
+  <option value="Boom Bap">Boom Bap</option>
+  <option value="Indie">Indie</option>
+  <option value="Drill">Drill</option>
+  <option value="Lofi">Lofi</option>
+  <option value="Grime">Grime</option>
+  <option value="Metal">Metal</option>
+  <option value="Dance Hall">Dance Hall</option>
+  <option value="Trip Hop">Trip Hop</option>
+  
+  <option value="Two Step">Two Step</option>
+  <option value="Dubstep">Dubstep</option>
+
+</select>
+</div>
+
+<div class="genrefilter-container3">
+
+<select id="genreselect3">
+  <option value=""></option>
+  <option value="RnB">RnB</option>
+  <option value="Rock">Rock</option>
+  <option value="Pop">Pop</option>
+  <option value="Hip-Hop">Hip-Hop</option>
+  <option value="Trap">Trap</option>
+  <option value="Electronic">Electronic</option>
+  <option value="Reggae">Reggae</option>
+  <option value="Latin">Latin</option>
+  <option value="Funk/Soul">Funk/Soul</option>
+  <option value="Country">Country</option>
+  <option value="Afro Beat">Afro Beat</option>
+  <option value="Folk">Folk</option>
+  <option value="Blues">Blues</option>
+
+
+  <option value="Boom Bap">Boom Bap</option>
+  <option value="Indie">Indie</option>
+  <option value="Drill">Drill</option>
+  <option value="Lofi">Lofi</option>
+  <option value="Grime">Grime</option>
+  <option value="Metal">Metal</option>
+  <option value="Dance Hall">Dance Hall</option>
+  <option value="Trip Hop">Trip Hop</option>
+  
+  <option value="Two Step">Two Step</option>
+  <option value="Dubstep">Dubstep</option>
+
+</select>
+</div>
+
+<button id="showGenreFilter2" class="show-genre-filter">+</button>
+<button id="showGenreFilter3" class="show-genre-filter2">+</button>
+
+
+
+<script>
+  const showGenreFilter2Button = document.getElementById("showGenreFilter2");
+  const showGenreFilter3Button = document.getElementById("showGenreFilter3");
+  const genreFilter2Container = document.querySelector(".genrefilter-container2");
+  const genreFilter3Container = document.querySelector(".genrefilter-container3");
+  const filteroverlay = document.querySelector(".filteroverlay");
+genreFilter2Container.style.display = "none";
+genreFilter3Container.style.display = "none";
+showGenreFilter3Button.style.display = "none";
+  showGenreFilter2Button.addEventListener("click", function() {
+    genreFilter2Container.style.display = "block";
+    showGenreFilter2Button.style.display = "none";
+    showGenreFilter3Button.style.display = "inline-block";
+    showGenreFilter3Button.style.display = "block";
+  });
+
+  showGenreFilter3Button.addEventListener("click", function() {
+    genreFilter3Container.style.display = "block";
+    showGenreFilter3Button.style.display = "none";
+
+  });
+</script>
 
 <h2 id="keyFilterHeading">Key:</h2>
 <div class="keyfilter-container">
