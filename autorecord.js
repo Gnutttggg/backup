@@ -157,7 +157,7 @@ let questionTextBox = null;
 
 questionIcon.addEventListener("mouseover", function() {
   questionTextBox = document.createElement("div");
-  questionTextBox.textContent = "Pick the best options that describe the intro you're looking for";
+  questionTextBox.textContent = "Pick the best options that describe the intro you're looking for.";
   questionTextBox.classList.add("questionTooltip");
 
   setTimeout(function() {
