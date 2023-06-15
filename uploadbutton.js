@@ -16,30 +16,8 @@ const demoPlayer = document.getElementById("demoPlayer");
 const downloadIcon = document.createElement("i");
 downloadIcon.classList.add("fas", "fa-download", "download-icon");
 downloadIcon.style.display = "none";
-const questionDownload = document.createElement("span");
-questionDownload.innerHTML = "&#x3F;"; // HTML entity code for question mark
-questionDownload.classList.add("question-download")
 
-let questionDownloadTextbox = null;
 
-questionDownload.addEventListener("click", function() {
-  questionDownloadTextbox = document.createElement("div");
-questionDownloadTextbox.textContent = 'Download your vocal demo for the current track. Your vocal track starts (aabaca)' + uniqueDelayTime + 'aaad';
-
-  questionDownloadTextbox.classList.add("questionDownloadTooltip");
-
-  setTimeout(function() {
-    questionDownload.appendChild(questionDownloadTextbox);
-  }, 500);
-});
-
-questionDownload.addEventListener("mouseout", function() {
-  if (questionDownloadTextbox) {
-    questionDownloadTextbox.remove();
-    questionDownloadTextbox = null;
-  }
-});
-questionDownload.style.display = "none";
 
 
 const bookmarkDemoButton = document.getElementById("bookmarkDemoButton");
@@ -161,9 +139,10 @@ fileInput.addEventListener("change", function(event) {
 
      
       // Create the intro description drop-down selections
-      const rhythmSelect = createDropDown("Rhythm", ["", "Dynamic", "Smooth", "Wavy"], modal.content);
-      const colorSelect = createDropDown("Color", ["", "Warm", "Cold", "Dark", "Colorful", "Stark", "Shiny"], modal.content);
-      const intensitySelect = createDropDown("Intensity", ["", "Aggressive", "Soft", "Moderate"], modal.content);
+      const rhythmSelect = createDropDown("Rhythm", ["", "Dynamic", "Smooth", "Swingy"], modal.content);
+      const intensitySelect = createDropDown("Sound", ["", "Dirty", "Clean", "Muted"], modal.content);
+      const colorSelect = createDropDown("Color", ["", "Warm", "Cold", "Dark", "Bright"], modal.content);
+      
       const instrumentSelect = createDropDown("Instrument", ["", "Drum-and-bass", "Acoustic guitar", "Electric guitar", "Pluck", "Bass", "Strings", "Piano", "Pads", "Percussion", "Synth", "Flute", "Violin", "Brass", "Vocal", "Soul sample", "Sound FX", "Banjo", "Sitar", "Harmonica", "Ukulele", "Cymbals", "Organ", "Cello", "Trumpet", "Saxophone", "Harpsichord", "Triangle", "Tambourine", "Other"], modal.content);
       const chordContainer = document.createElement("div");
 chordContainer.classList.add("chord-container");
@@ -180,8 +159,9 @@ chordContainer.classList.add("chord-container");
       // Add a CSS class to the container elements -> To fix their position
       
       rhythmSelect.container.classList.add("dropdown-rhythm");
-      colorSelect.container.classList.add("dropdown-color");
       intensitySelect.container.classList.add("dropdown-intensity");
+      colorSelect.container.classList.add("dropdown-color");
+      
       instrumentSelect.container.classList.add("dropdown-instrument");
       genreSelect.container.classList.add("dropdown-genre");
       keySelect.container.classList.add("dropdown-key");
@@ -244,9 +224,8 @@ for (let i = 1; i <= 3; i++) {
        
 
 setTimeout(function() {
-    showNotification("Your track is live as " + trackName + "!");
+    showNotification("Your track is live as " + trackName + ".");
   }, 2500); // Delay in milliseconds
-
 
 
         
@@ -573,8 +552,9 @@ document.body.appendChild(linkValuesContainer);
         audioIntroElement.dataset.genre = genreSelect.value;
         audioIntroElement.dataset.key = keySelect.value;
         audioIntroElement.dataset.rhythm = rhythmSelect.value;
-        audioIntroElement.dataset.color = colorSelect.value;
         audioIntroElement.dataset.intensity = intensitySelect.value;
+        audioIntroElement.dataset.color = colorSelect.value;
+        
         audioIntroElement.dataset.instrument = instrumentSelect.value;
 audioIntroElement.style.fontSize = "20px";
 audioIntroElement.style.fontFamily = "sans-serif";
@@ -593,7 +573,7 @@ const intensity = `<strong>${intensitySelect.value}</strong>`;
           }
           chordsDisplay = `<span style="font-weight: bold; font-size: 16px; font-style: italic; color: #666666;">${chordsDisplay}</span>`;
         }
-        audioIntroElement.innerHTML = `${rhythm}, ${color}, ${intensity}, ${instrumentSelect.value}<br>${chordsDisplay}`;
+        audioIntroElement.innerHTML = `${rhythm}, ${intensity}, ${color}, ${instrumentSelect.value}<br>${chordsDisplay}`;
       // Create a container for the audio intro element
       const audioIntroContainer = document.createElement("div");
       audioIntroContainer.classList.add("audio-intro-container");
@@ -666,8 +646,9 @@ newGridItem.appendChild(contentContainer);
 
       // Add the drop-downs and submit button to the modal dialog
       const rhythmHeading = document.createElement("h3");
-rhythmHeading.textContent = "Describe your intro:";
+rhythmHeading.textContent = "The first second:";
 rhythmHeading.classList.add("rhythm-heading");
+
       // Create a span element for the question mark icon
 const questionRhythm = document.createElement("span");
 questionRhythm.innerHTML = "&#x3F;"; // HTML entity code for question mark
@@ -677,7 +658,7 @@ let questionRhythmTextbox = null;
 
 questionRhythm.addEventListener("mouseover", function() {
   questionRhythmTextbox = document.createElement("div");
-  questionRhythmTextbox.textContent = "Pick the keywords that describe the intro section of the track";
+  questionRhythmTextbox.textContent = "Pick the best options that best describe the intro your track's intro";
   questionRhythmTextbox.classList.add("questionRhythmTooltip");
 
   setTimeout(function() {
@@ -703,7 +684,7 @@ let questionChordTextbox = null;
 
 questionChord.addEventListener("mouseover", function() {
   questionChordTextbox = document.createElement("div");
-  questionChordTextbox.textContent = "Pick the chord progression for the main section of the track";
+  questionChordTextbox.textContent = "Pick the chord progression in the main section of your track";
   questionChordTextbox.classList.add("questionChordTooltip");
 
   setTimeout(function() {
@@ -735,8 +716,9 @@ modal.content.appendChild(genreHeading);
 modal.content.appendChild(keyHeading);
 modal.content.appendChild(linkHeading);
       modal.content.appendChild(rhythmSelect.container);
-      modal.content.appendChild(colorSelect.container);
       modal.content.appendChild(intensitySelect.container);
+      modal.content.appendChild(colorSelect.container);
+      
       modal.content.appendChild(instrumentSelect.container);
       modal.content.appendChild(chordContainer);
         modal.content.appendChild(genreSelect.container);
@@ -941,8 +923,10 @@ function showAudioPlayer() {
   buttonContainer.style.display = "block";
   recordButtonOverlay.style.display = "block";
   bookmarkButton.style.display = "block";
-
+  downloadExplanation.style.display = "none";
   gridAudioPlayer.style.display = "none";
+  downloadIcon.style.display = "none";
+  demoPlayer.style.display = "none";
   
 }
 
@@ -952,8 +936,10 @@ function showDemoPlayer() {
   buttonContainer.style.display = "block";
   recordButtonOverlay.style.display = "block";
   bookmarkButton.style.display = "block";
-
+downloadExplanation.style.display = "block";
   gridAudioPlayer.style.display = "block";
+  downloadIcon.style.display = "block";
+    demoPlayer.style.display = "block";
 }
 
 
@@ -1164,7 +1150,8 @@ for (const gridItem of gridItems) {
 }
 
 
-        const recordedAudio = new Blob(chunks, { type: "audio/wav" });
+       const recordedAudio = new Blob(chunks, { type: "audio/mp3" });
+
         const demoButton = createDemoButton(currentGridItem, recordedAudio, delayTime);
         currentGridItem.appendChild(demoButton);
 
@@ -1239,7 +1226,7 @@ function playDemoPlayer(gridItem) {
   }
   demoPlayer.style.display = "block"; // Show the demo audio player
 downloadIcon.style.display = "block";
-questionDownload.style.display = "block";
+
 }
 
 
@@ -1336,6 +1323,7 @@ if (recordButton.contains(recordAgainText)) {
    audioPlayer.pause();
 
   uniqueDelayTime = parseFloat(demoButton.getAttribute("data-delay-time"));
+  
     event.stopPropagation();
 
         const demoButtons = document.querySelectorAll(".demo-button");
@@ -1370,7 +1358,34 @@ if (recordButton.contains(recordAgainText)) {
   }
 }
 
+const downloadExplanation = document.createElement("button");
+downloadExplanation.innerHTML = "i";
+  downloadExplanation.classList.add("download-explanation");
+  audioPlayerOverlay.appendChild(downloadExplanation);
 
+let popup;
+
+downloadExplanation.addEventListener("click", () => {
+  if (!popup) {
+    popup = document.createElement("div");
+    popup.classList.add("popup");
+    popup.innerHTML = "Download your vocals for the current demo (just the vocals). It might take up to 3 minutes to get ready. Your vocal track starts <span class='delay-time'>" + ((uniqueDelayTime / 1000).toFixed(2)) + " seconds </span> after the beat (save this info).";
+
+    audioPlayerOverlay.appendChild(popup);
+    popup.style.display = "block";
+    popup.style.backgroundColor = "black";
+  } else {
+    popup.style.display = popup.style.display === "block" ? "none" : "block";
+  }
+});
+
+document.body.addEventListener("click", (event) => {
+  if (event.target !== downloadExplanation && event.target !== popup) {
+    if (popup && popup.style.display === "block") {
+      popup.style.display = "none";
+    }
+  }
+});
 
 
 function updateRed() {
@@ -1458,7 +1473,7 @@ eqNode3.gain.value = -4.5; // Adjust the gain as needed
 const eqNode4 = audioContext.createBiquadFilter();
 eqNode4.type = 'peaking';
 eqNode4.frequency.value = 5000; 
-eqNode4.gain.value = 2.5; // Adjust the gain as needed
+eqNode4.gain.value = 2.3; // Adjust the gain as needed
 
 const eqNode5 = audioContext.createBiquadFilter();
 eqNode5.type = 'lowpass';
@@ -1494,7 +1509,7 @@ filter4.connect(eqNode3);
 
 const eqNode6 = audioContext.createBiquadFilter();
 eqNode6.type = 'peaking';
-eqNode6.frequency.value = 7600; // Adjust the frequency as needed
+eqNode6.frequency.value = 7700; // Adjust the frequency as needed
 eqNode6.gain.value = 1.5; // Adjust the gain as needed
 const eqNode7 = audioContext.createBiquadFilter();
 eqNode7.type = 'peaking';
@@ -1505,7 +1520,7 @@ const compressorNode = audioContext.createDynamicsCompressor();
 compressorNode.threshold.value = -19;
 compressorNode.ratio.value = 6;
 compressorNode.attack.value = 0.35;
-compressorNode.release.value = 0.03;
+compressorNode.release.value = 0.02;
 
 const gainNode = audioContext.createGain();
 gainNode.gain.value = 1.25;
