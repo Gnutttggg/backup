@@ -68,14 +68,14 @@
 
 .dropdown-color {
   position: fixed;
-  top: 155px; /* Adjust the top position as needed */
+  top: 180px; /* Adjust the top position as needed */
   left: 23.5px; /* Adjust the left position as needed */
   font-style: italic;
 }
 
 .dropdown-intensity {
   position: fixed;
-  top: 180px; /* Adjust the top position as needed */
+  top: 155px; /* Adjust the top position as needed */
   left: 23.5px; /* Adjust the left position as needed */
   font-style: italic;
 }
