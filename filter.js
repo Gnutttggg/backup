@@ -47,7 +47,7 @@ function filterGridItems() {
 
     if (introFilterMatch && (selectedChords.every(chord => chord === ""))) {
       gridItem.style.display = "block"; // Show the grid item
-    } else if (introFilterMatch && displayedChords.every(chord => selectedChords.includes(chord))) {
+    } else if (introFilterMatch && displayedChords.some(chord => selectedChords.includes(chord))) {
       gridItem.style.display = "block"; // Show the grid item
     } else {
       gridItem.style.display = "none"; // Hide the grid item
@@ -123,4 +123,7 @@ cancelButton.addEventListener("click", function() {
   searchButton.style.display = "block";
   cancelButton.style.display = "none";
 });
+
+
+
 
