@@ -139,18 +139,18 @@ fileInput.addEventListener("change", function(event) {
 
      
       // Create the intro description drop-down selections
-      const rhythmSelect = createDropDown("Rhythm ",  ["", "Dynamic", "Smooth", "Swingy"], modal.content);
+      const rhythmSelect = createDropDown("",  ["", "I", "i", "II", "ii", "III", "iii", "IV", "iv", "V", "v", "VI", "vi", "VII", "vii"], modal.content);
 
-      const intensitySelect = createDropDown("Sound", ["", "Dirty", "Clean", "Muted"], modal.content);
-      const colorSelect = createDropDown("Color", ["", "Warm", "Cold", "Dark", "Bright"], modal.content);
+      const intensitySelect = createDropDown("", ["", "I", "i", "II", "ii", "III", "iii", "IV", "iv", "V", "v", "VI", "vi", "VII", "vii"], modal.content);
+      const colorSelect = createDropDown("", ["", "I", "i", "II", "ii", "III", "iii", "IV", "iv", "V", "v", "VI", "vi", "VII", "vii"], modal.content);
       
-      const instrumentSelect = createDropDown("Instrument", ["", "Drum-and-bass", "Acoustic guitar", "Electric guitar", "Pluck", "Bass", "Strings", "Piano", "Pads", "Percussion", "Synth", "Flute", "Violin", "Brass", "Vocal", "Soul sample", "Sound FX", "Banjo", "Sitar", "Harmonica", "Ukulele", "Cymbals", "Organ", "Cello", "Trumpet", "Saxophone", "Harpsichord", "Triangle", "Tambourine", "Other"], modal.content);
+      const instrumentSelect = createDropDown("", ["", "I", "i", "II", "ii", "III", "iii", "IV", "iv", "V", "v", "VI", "vi", "VII", "vii"], modal.content);
       const chordContainer = document.createElement("div");
 chordContainer.classList.add("chord-container");
       const chordSelects = [];
 
-      for (let i = 1; i <= 8; i++) {
-  const chordSelect = createDropDown("", ["", "I", "ii", "II", "iii", "III", "iv", "IV", "v", "V", "vi", "VI", "vii"], chordContainer);
+      for (let i = 1; i <= 3; i++) {
+  const chordSelect = createDropDown("", ["", "Drum-and-bass", "Acoustic guitar", "Electric guitar", "Pluck", "Bass", "Strings", "Piano", "Pads", "Percussion", "Synth", "Flute", "Violin", "Brass", "Vocal", "Soul sample", "Sound FX", "Banjo", "Sitar", "Harmonica", "Ukulele", "Cymbals", "Organ", "Cello", "Trumpet", "Saxophone", "Harpsichord", "Triangle", "Tambourine", "Other"], modal.content);
   chordSelects.push(chordSelect);
 }
  const genreSelect = createDropDown("", ["", "RnB", "Rock", "Jazz", "Hip-Hop", "Trap", "Pop", "Electronic", "Reggae", "Latin", "Funk/Soul", "Country", "Afro Beat", "Folk", "Boom Bap", "Blues", "Drill", "Indie", "Lofi", "Grime", "Metal", "Dance Hall", "Two Step", "Trip Hop", "Dubstep"], modal.content);
@@ -160,108 +160,13 @@ chordContainer.classList.add("chord-container");
       // Add a CSS class to the container elements -> To fix their position
       
       rhythmSelect.container.classList.add("dropdown-rhythm");
-      const questionRhythmSelect = document.createElement("span");
-questionRhythmSelect.innerHTML = "&#x3F;"; // HTML entity code for question mark
-questionRhythmSelect.classList.add("question-rhythm-select")
-rhythmSelect.container.appendChild(questionRhythmSelect);
-let questionRhythmSelectTextbox = null;
-
-questionRhythmSelect.addEventListener("mouseover", function() {
-  questionRhythmSelectTextbox = document.createElement("div");
-  questionRhythmSelectTextbox.textContent = "If it makes your head bop a lot, it's Dynamic. If it makes your head bop a little, it's Smooth. If it makes your head go side to side, it's Swingy.";
-  questionRhythmSelectTextbox.classList.add("questionRhythmSelectTooltip");
-
-  setTimeout(function() {
-    questionRhythmSelect.appendChild(questionRhythmSelectTextbox);
-  }, 500);
-});
-
-questionRhythmSelect.addEventListener("mouseout", function() {
-  if (questionRhythmSelectTextbox) {
-    questionRhythmSelectTextbox.remove();
-    questionRhythmSelectTextbox = null;
-  }
-});
-
-
 
       intensitySelect.container.classList.add("dropdown-intensity");
-      const questionIntensitySelect = document.createElement("span");
-questionIntensitySelect.innerHTML = "&#x3F;"; // HTML entity code for question mark
-questionIntensitySelect.classList.add("question-intensity-select")
-intensitySelect.container.appendChild(questionIntensitySelect);
-let questionIntensitySelectTextbox = null;
-
-questionIntensitySelect.addEventListener("mouseover", function() {
-  questionIntensitySelectTextbox = document.createElement("div");
-  questionIntensitySelectTextbox.textContent = "Pick the most appropriate option.";
-  questionIntensitySelectTextbox.classList.add("questionIntensitySelectTooltip");
-
-  setTimeout(function() {
-    questionIntensitySelect.appendChild(questionIntensitySelectTextbox);
-  }, 500);
-});
-
-questionIntensitySelect.addEventListener("mouseout", function() {
-  if (questionIntensitySelectTextbox) {
-    questionIntensitySelectTextbox.remove();
-    questionIntensitySelectTextbox = null;
-  }
-});
-
 
 
       colorSelect.container.classList.add("dropdown-color");
-      const questionColorSelect = document.createElement("span");
-questionColorSelect.innerHTML = "&#x3F;"; // HTML entity code for question mark
-questionColorSelect.classList.add("question-color-select")
-colorSelect.container.appendChild(questionColorSelect);
-let questionColorSelectTextbox = null;
-
-questionColorSelect.addEventListener("mouseover", function() {
-  questionColorSelectTextbox = document.createElement("div");
-  questionColorSelectTextbox.textContent = "Pick the most appropriate option.";
-  questionColorSelectTextbox.classList.add("questionColorSelectTooltip");
-
-  setTimeout(function() {
-    questionColorSelect.appendChild(questionColorSelectTextbox);
-  }, 500);
-});
-
-questionColorSelect.addEventListener("mouseout", function() {
-  if (questionColorSelectTextbox) {
-    questionColorSelectTextbox.remove();
-    questionColorSelectTextbox = null;
-  }
-});
-
-
 
       instrumentSelect.container.classList.add("dropdown-instrument");
-      const questionInstrumentSelect = document.createElement("span");
-questionInstrumentSelect.innerHTML = "&#x3F;"; // HTML entity code for question mark
-questionInstrumentSelect.classList.add("question-instrument-select")
-instrumentSelect.container.appendChild(questionInstrumentSelect);
-let questionInstrumentSelectTextbox = null;
-
-questionInstrumentSelect.addEventListener("mouseover", function() {
-  questionInstrumentSelectTextbox = document.createElement("div");
-  questionInstrumentSelectTextbox.textContent = "Pick the instrument that should get the most attention.";
-  questionInstrumentSelectTextbox.classList.add("questionInstrumentSelectTooltip");
-
-  setTimeout(function() {
-    questionInstrumentSelect.appendChild(questionInstrumentSelectTextbox);
-  }, 500);
-});
-
-questionInstrumentSelect.addEventListener("mouseout", function() {
-  if (questionInstrumentSelectTextbox) {
-    questionInstrumentSelectTextbox.remove();
-    questionInstrumentSelectTextbox = null;
-  }
-});
-
-
 
       genreSelect.container.classList.add("dropdown-genre");
       keySelect.container.classList.add("dropdown-key");
@@ -656,24 +561,25 @@ document.body.appendChild(linkValuesContainer);
         audioIntroElement.dataset.color = colorSelect.value;
         
         audioIntroElement.dataset.instrument = instrumentSelect.value;
-audioIntroElement.style.fontSize = "20px";
+audioIntroElement.style.fontSize = "24px";
 audioIntroElement.style.fontFamily = "sans-serif";
 const rhythm = `<strong>${rhythmSelect.value}</strong>`;
 const color = `<strong>${colorSelect.value}</strong>`;
 const intensity = `<strong>${intensitySelect.value}</strong>`;
+const instrument = `<strong>${instrumentSelect.value}</strong>`;
 
         const chordValues = chordSelects.map(chordSelect => chordSelect.value).filter(value => value !== "");
         audioIntroElement.dataset.chords = JSON.stringify(chordValues);
         let chordsDisplay = "";
         if (chordValues.length > 0) {
           if (chordValues.length > 1) {
-            chordsDisplay = chordValues.join("  -  ");
+            chordsDisplay = chordValues.join(", ");
           } else {
             chordsDisplay = chordValues[0];
           }
           chordsDisplay = `<span style="font-weight: bold; font-size: 16px; font-style: italic; color: #666666;">${chordsDisplay}</span>`;
         }
-        audioIntroElement.innerHTML = `${rhythm}, ${intensity}, ${color}, ${instrumentSelect.value}<br>${chordsDisplay}`;
+        audioIntroElement.innerHTML = `${rhythm}&nbsp;&nbsp;&nbsp;${intensity}&nbsp;&nbsp;&nbsp;${color}&nbsp;&nbsp;&nbsp;${instrument}<br>${chordsDisplay}`;
       // Create a container for the audio intro element
       const audioIntroContainer = document.createElement("div");
       audioIntroContainer.classList.add("audio-intro-container");
@@ -746,7 +652,7 @@ newGridItem.appendChild(contentContainer);
 
       // Add the drop-downs and submit button to the modal dialog
       const rhythmHeading = document.createElement("h3");
-rhythmHeading.textContent = "Describe your intro:";
+rhythmHeading.textContent = "Chord Progression:";
 rhythmHeading.classList.add("rhythm-heading");
 
       // Create a span element for the question mark icon
@@ -774,7 +680,7 @@ questionRhythm.addEventListener("mouseout", function() {
 });
 
 const chordHeading = document.createElement("h3");
-chordHeading.textContent = "Main chord progression:";
+chordHeading.textContent = "Intro Instrument(s):";
 chordHeading.classList.add("chord-heading");
 const questionChord = document.createElement("span");
 questionChord.innerHTML = "&#x3F;"; // HTML entity code for question mark
