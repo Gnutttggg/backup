@@ -150,7 +150,7 @@ chordContainer.classList.add("chord-container");
       const chordSelects = [];
 
       for (let i = 1; i <= 3; i++) {
-  const chordSelect = createDropDown("", ["", "Drum-and-bass", "Acoustic guitar", "Electric guitar", "Pluck", "Bass", "Strings", "Piano", "Pads", "Percussion", "Synth", "Flute", "Violin", "Brass", "Vocal", "Soul sample", "Sound FX", "Banjo", "Sitar", "Harmonica", "Ukulele", "Cymbals", "Organ", "Cello", "Trumpet", "Saxophone", "Harpsichord", "Triangle", "Tambourine", "Other"], modal.content);
+  const chordSelect = createDropDown("", ["", "Drum-and-bass", "Acoustic guitar", "Electric guitar", "Pluck", "Bass", "Strings", "Keyboard", "Piano", "Pads", "Percussion", "Synth", "Flute", "Violin", "Brass", "Vocal", "Soul sample", "Sound FX", "Banjo", "Sitar", "Harmonica", "Ukulele", "Cymbals", "Organ", "Cello", "Trumpet", "Saxophone", "Harpsichord", "Triangle", "Tambourine", "Other"], modal.content);
   chordSelects.push(chordSelect);
 }
  const genreSelect = createDropDown("", ["", "RnB", "Rock", "Jazz", "Hip-Hop", "Trap", "Pop", "Electronic", "Reggae", "Latin", "Funk/Soul", "Country", "Afro Beat", "Folk", "Boom Bap", "Blues", "Drill", "Indie", "Lofi", "Grime", "Metal", "Dance Hall", "Two Step", "Trip Hop", "Dubstep"], modal.content);
