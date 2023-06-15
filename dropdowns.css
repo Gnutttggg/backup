@@ -28,6 +28,7 @@
   top: 12%;
   margin-left: 15px;
   color: white;
+  z-index: 9999;
 }
 
 .question-rhythm {
@@ -45,6 +46,8 @@
   content: "?";
   margin-left: 10px;
 }
+
+
 
 .questionRhythmTooltip {
   position: absolute;
@@ -64,6 +67,41 @@
   top: 130px; /* Adjust the top position as needed */
   left: 23.5px; /* Adjust the left position as needed */
   font-style: italic;
+  z-index: 9999;
+  background-color: transparent;
+  height: 25px;
+}
+
+.question-rhythm-select {
+   position: relative;
+  cursor: pointer;
+  font-style: normal;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #1E90FF;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  content: "?";
+  margin-left: 140px;
+  top: -28px;
+}
+
+.questionRhythmSelectTooltip {
+  position: absolute;
+  top: -30px;
+  left: 700%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  font-size: 10px;
+  z-index: 9999;
 }
 
 .dropdown-color {
@@ -71,6 +109,40 @@
   top: 180px; /* Adjust the top position as needed */
   left: 23.5px; /* Adjust the left position as needed */
   font-style: italic;
+  z-index: 9999;
+}
+
+.question-color-select {
+   position: relative;
+  cursor: pointer;
+  font-style: normal;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #1E90FF;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  content: "?";
+  margin-left: 108px;
+z-index: 9999;
+  top: -28px;
+}
+
+.questionColorSelectTooltip {
+  position: absolute;
+  top: -30px;
+  left: 700%;
+  transform: translateX(-50%);
+    z-index: 9999;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  font-size: 10px;
 }
 
 .dropdown-intensity {
@@ -78,6 +150,39 @@
   top: 155px; /* Adjust the top position as needed */
   left: 23.5px; /* Adjust the left position as needed */
   font-style: italic;
+  z-index: 9999;
+}
+
+.question-intensity-select {
+   position: relative;
+   font-style: normal;
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #1E90FF;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  content: "?";
+  margin-left: 118px;
+  top: -28px;
+}
+
+.questionIntensitySelectTooltip {
+  position: absolute;
+  top: -30px;
+  left: 700%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  font-size: 10px;
+  z-index: 9999;
 }
 
 .dropdown-instrument {
@@ -85,9 +190,39 @@
   top: 205px; /* Adjust the top position as needed */
   left: 23.5px; /* Adjust the left position as needed */
   font-style: italic;
+  z-index: 9999;
 }
 
+.question-instrument-select {
+   position: relative;
+   font-style: normal;
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #1E90FF;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  content: "?";
+  margin-left: 200px;
+  top: -28px;
+}
 
+.questionInstrumentSelectTooltip {
+  position: absolute;
+  top: -30px;
+  left: 700%;
+  transform: translateX(-50%);
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  font-size: 10px;
+}
 
 .chord-heading {
   position: fixed;
