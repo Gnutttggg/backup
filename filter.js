@@ -4,6 +4,8 @@ function filterGridItems() {
   const intensityFilterValue = document.getElementById("intensityfilter").value;
   const instrumentFilterValue = document.getElementById("instrumentfilter").value;
   const genreFilterValue = document.getElementById("genreselect").value;
+  const genreFilterValue2 = document.getElementById("genreselect2").value;
+  const genreFilterValue3 = document.getElementById("genreselect3").value;
   const keyFilterValue = document.getElementById("keyselect").value;
   const searchInputValue = trackSearchInput.value.trim();
 
@@ -34,7 +36,9 @@ function filterGridItems() {
       (colorFilterValue === "" || colorSelectValue === colorFilterValue) &&
       (intensityFilterValue === "" || intensitySelectValue === intensityFilterValue) &&
       (instrumentFilterValue === "" || instrumentSelectValue === instrumentFilterValue) &&
-      (genreFilterValue === "" || genreSelectValue === genreFilterValue) &&
+      ((genreFilterValue === "" || genreSelectValue === genreFilterValue) ||
+ (genreSelectValue === genreFilterValue2) ||
+  (genreSelectValue === genreFilterValue3)) &&
       (keyFilterValue === "" || keySelectValue === keyFilterValue) &&
       (isTrackNameMatched)
     ) {
@@ -70,6 +74,12 @@ chordFilterDropdown.forEach(chordFilter => {
 const genreFilterDropdown = document.getElementById("genreselect");
 genreFilterDropdown.addEventListener("change", filterGridItems);
 
+const genreFilterDropdown2 = document.getElementById("genreselect2");
+genreFilterDropdown2.addEventListener("change", filterGridItems);
+
+const genreFilterDropdown3 = document.getElementById("genreselect3");
+genreFilterDropdown3.addEventListener("change", filterGridItems);
+
 const keyFilterDropdown = document.getElementById("keyselect");
 keyFilterDropdown.addEventListener("change", filterGridItems);
 
@@ -83,6 +93,8 @@ searchButton.addEventListener("click", function() {
   intensityFilterDropdown.value = "";
   instrumentFilterDropdown.value = "";
   genreFilterDropdown.value = "";
+  genreFilterDropdown2.value = "";
+  genreFilterDropdown3.value = "";
   keyFilterDropdown.value = "";
   cancelButton.style.display = "block";
   searchButton.style.display = "none";
@@ -98,6 +110,8 @@ cancelButton.addEventListener("click", function() {
   intensityFilterDropdown.value = "";
   instrumentFilterDropdown.value = "";
   genreFilterDropdown.value = "";
+  genreFilterDropdown2.value = "";
+  genreFilterDropdown3.value = "";
   keyFilterDropdown.value = "";
 
 
