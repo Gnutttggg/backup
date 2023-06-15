@@ -1,129 +1,216 @@
-function filterGridItems() {
-  const rhythmFilterValue = document.getElementById("rhythmfilter").value;
-  const colorFilterValue = document.getElementById("colorfilter").value;
-  const intensityFilterValue = document.getElementById("intensityfilter").value;
-  const instrumentFilterValue = document.getElementById("instrumentfilter").value;
-  const genreFilterValue = document.getElementById("genreselect").value;
-  const genreFilterValue2 = document.getElementById("genreselect2").value;
-  const genreFilterValue3 = document.getElementById("genreselect3").value;
-  const keyFilterValue = document.getElementById("keyselect").value;
-  const searchInputValue = trackSearchInput.value.trim();
 
-  const chordFilters = document.querySelectorAll('[id^="chordFilter"]');
-  const selectedChords = Array.from(chordFilters)
-    .map(filter => filter.value)
-    .filter(chord => chord !== undefined);
+#specificFilterHeading {
+  position: fixed;
+  top: 20%;
+  left: 20px;
+  color: white;
+  z-index: 9999;
+}
 
-  const gridItems = document.querySelectorAll(".grid-item");
+.intro-container {
+  display: flex;
+  position: fixed;
+  top: 29%;
+  left: 20px;
+}
 
-  for (let i = 0; i < gridItems.length; i++) {
-    const gridItem = gridItems[i];
-    const introElement = gridItem.querySelector(".keyword");
-    const genreSelectValue = introElement.dataset.genre || '' || gridItem.dataset.genre;
-    const keySelectValue = introElement.dataset.key || '' || gridItem.dataset.key;
-    const trackNameElement = gridItem.querySelector(".track-name");
-    const trackName = trackNameElement.textContent.trim();
-    const isTrackNameMatched = trackName.includes(searchInputValue);
-    const rhythmSelectValue = introElement.dataset.rhythm || '' || gridItem.dataset.rhythm;
-    const colorSelectValue = introElement.dataset.color || '' || gridItem.dataset.color;
-    const intensitySelectValue = introElement.dataset.intensity || '' || gridItem.dataset.intensity;
-    const instrumentSelectValue = introElement.dataset.instrument || '' || gridItem.dataset.instrument;
-    const displayedChords = introElement.dataset.chords ? JSON.parse(introElement.dataset.chords) : [] || gridItem.dataset.chords ? JSON.parse(gridItem.dataset.chords) : [];
+.rhythmfilter-container {
+  font-style: italic;
+}
 
-    let introFilterMatch = false;
-    if (
-      (rhythmFilterValue === "" || rhythmSelectValue === rhythmFilterValue) &&
-      (colorFilterValue === "" || colorSelectValue === colorFilterValue) &&
-      (intensityFilterValue === "" || intensitySelectValue === intensityFilterValue) &&
-      (instrumentFilterValue === "" || instrumentSelectValue === instrumentFilterValue) &&
-      ((genreFilterValue === "" || genreSelectValue === genreFilterValue) ||
- (genreSelectValue === genreFilterValue2) ||
-  (genreSelectValue === genreFilterValue3)) &&
-      (keyFilterValue === "" || keySelectValue === keyFilterValue) &&
-      (isTrackNameMatched)
-    ) {
-      introFilterMatch = true;
-    }
+.colorfilter-container {
+  font-style: italic;
+}
 
-    if (introFilterMatch && (selectedChords.every(chord => chord === ""))) {
-      gridItem.style.display = "block"; // Show the grid item
-    } else if (introFilterMatch && displayedChords.some(chord => selectedChords.includes(chord))) {
-      gridItem.style.display = "block"; // Show the grid item
-    } else {
-      gridItem.style.display = "none"; // Hide the grid item
-    }
-  }
+.intensityfilter-container {
+  font-style: italic;
+}
+
+.instrumentfilter-container {
+  font-style: italic;
+}
+
+.questionTooltip {
+  position: absolute;
+  top: -75px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 10px;
+  width: 200px;
+  font-size: 10px;
 }
 
 
-const rhythmFilterDropdown = document.getElementById("rhythmfilter");
-const colorFilterDropdown = document.getElementById("colorfilter");
-const intensityFilterDropdown = document.getElementById("intensityfilter");
-const instrumentFilterDropdown = document.getElementById("instrumentfilter");
 
-rhythmFilterDropdown.addEventListener("change", filterGridItems);
-colorFilterDropdown.addEventListener("change", filterGridItems);
-intensityFilterDropdown.addEventListener("change", filterGridItems);
-instrumentFilterDropdown.addEventListener("change", filterGridItems);
-
-const chordFilterDropdown = document.querySelectorAll('[id^="chordFilter"]');
-chordFilterDropdown.forEach(chordFilter => {
-  chordFilter.addEventListener("change", filterGridItems);
-});
-
-const genreFilterDropdown = document.getElementById("genreselect");
-genreFilterDropdown.addEventListener("change", filterGridItems);
-
-const genreFilterDropdown2 = document.getElementById("genreselect2");
-genreFilterDropdown2.addEventListener("change", filterGridItems);
-
-const genreFilterDropdown3 = document.getElementById("genreselect3");
-genreFilterDropdown3.addEventListener("change", filterGridItems);
-
-const keyFilterDropdown = document.getElementById("keyselect");
-keyFilterDropdown.addEventListener("change", filterGridItems);
-
-
-cancelButton.style.display = "none";
-
-searchButton.addEventListener("click", function() {
-  // Clear other filters
-  rhythmFilterDropdown.value = "";
-  colorFilterDropdown.value = "";
-  intensityFilterDropdown.value = "";
-  instrumentFilterDropdown.value = "";
-  genreFilterDropdown.value = "";
-  genreFilterDropdown2.value = "";
-  genreFilterDropdown3.value = "";
-  keyFilterDropdown.value = "";
-  cancelButton.style.display = "block";
-  searchButton.style.display = "none";
-});
-
-searchButton.addEventListener("click", filterGridItems);
-
-
-cancelButton.addEventListener("click", function() {
-  // Clear other filters
-  rhythmFilterDropdown.value = "";
-  colorFilterDropdown.value = "";
-  intensityFilterDropdown.value = "";
-  instrumentFilterDropdown.value = "";
-  genreFilterDropdown.value = "";
-  genreFilterDropdown2.value = "";
-  genreFilterDropdown3.value = "";
-  keyFilterDropdown.value = "";
-
-
-  // Reset track name input
-  document.getElementById("trackSearchInput").value = "";
-
-  // Trigger search button click
-  searchButton.click();
-  searchButton.style.display = "block";
-  cancelButton.style.display = "none";
-});
+.question-icon {
+  position: relative;
+  cursor: pointer;
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background-color: #1E90FF;
+  border-radius: 50%;
+  color: white;
+  font-size: 14px;
+  text-align: center;
+  line-height: 24px;
+  z-index: 9999;
+  content: "?";
+}
 
 
 
+#chordFiltersContainer {
+  position: fixed;
+  top: 37%;
+  left: 20px;
+}
+
+.genrefilter-container {
+  display: flex;
+  position: fixed;
+  top: 55%;
+  left: 20px;
+}
+
+.genrefilter-container2 {
+  display: flex;
+  position: fixed;
+  top: 55%;
+  left: 110px;
+}
+
+.genrefilter-container3 {
+  display: flex;
+  position: fixed;
+  top: 55%;
+  left: 200px;
+}
+
+
+  .show-genre-filter {
+    position: fixed;
+  top: 55%;
+  left: 112px;
+  background-color: black;
+  font-weight: bold;
+  border-radius: 0;
+  width: 19px;
+  height: 19px;
+  }
+
+  .show-genre-filter2 {
+    position: fixed;
+  top: 55%;
+  left: 202px;
+  font-weight: bold;
+  background-color: black;
+  border-radius: 0;
+  width: 19px;
+  height: 19px;
+  }
+
+  .hide-genre-filter {
+    position: fixed;
+  top: 55%;
+  left: 112px;
+  background-color: black;
+  font-weight: bold;
+  border-radius: 0;
+  width: 19px;
+  height: 19px;
+  }
+
+  .hide-genre-filter2 {
+    position: fixed;
+  top: 55%;
+  left: 202px;
+  font-weight: bold;
+  background-color: black;
+  border-radius: 0;
+  width: 19px;
+  height: 19px;
+  }
+
+
+.keyfilter-container {
+  display: flex;
+  position: fixed;
+  top: 68%;
+  left: 20px;
+}
+
+
+
+#generalFilterHeading {
+  position: fixed;
+  top: 48%;
+  left: 20px;
+  color: white;
+}
+
+#keyFilterHeading {
+  position: fixed;
+  top: 60.5%;
+  left: 20px;
+  color: white;
+}
+
+.search-container {
+  display: flex;
+    position: fixed;
+  top: 74%;
+  left: 20px;
+  color: white;
+}
+
+
+#trackSearchInput {
+  width: 50px; /* Adjust the width as desired */
+  height: 11px; /* Adjust the height as desired */
+  font-size: 14px; /* Adjust the font size as desired */
+  padding: 5px; /* Adjust the padding as desired */
+  position: fixed;
+  left: 220px;
+  top: 77%;
+}
+
+#searchButton {
+  position: fixed;
+  font-size: 14px;
+  font-weight: bold;
+  left: 287.5px;
+  top: 77%;
+  height: 25px;
+  width: 85px;
+  background-color: black;
+  border-radius: 0;
+}
+
+#cancelButton {
+  position: fixed;
+  font-size: 14px;
+  font-weight: bold;
+  left: 290px;
+  top: 77%;
+  height: 25px;
+   width: 85px;
+  background-color: red;
+  border-radius: 0;
+}
+
+.close-button {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+   width: 85px;
+  cursor: pointer;
+  background-color: transparent;
+  opacity: 1;
+}
 
