@@ -60,7 +60,7 @@ chordsDisplayElement.style.fontStyle = "italic";
 chordsDisplayElement.style.color = "#666666";
 chordsDisplayElement.innerHTML = chordsDisplay;
 
-audioIntroElement.innerHTML = `${rhythmDisplay}, ${colorDisplay}, ${intensityDisplay}, ${instrument}<br>`;
+audioIntroElement.innerHTML = `${rhythmDisplay}, ${intensityDisplay}, ${colorDisplay}, ${instrument}<br>`;
 audioIntroElement.appendChild(chordsDisplayElement);
 
 
