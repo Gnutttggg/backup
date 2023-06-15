@@ -438,7 +438,7 @@ display: none;
   height: 35px; /* Adjust the height to make it smaller */
   position: absolute;
   bottom: 30px; /* Adjust the top position to align it within the grid item */
-  right: 220px; /* Adjust the right position to align it within the grid item */
+  right: 217.5px; /* Adjust the right position to align it within the grid item */
   background-color: white;
   font-style: italic;
   border: none;
@@ -556,57 +556,60 @@ font-weight: bold;
   opacity: 0;
   height: 35px;
 
-  margin-right: 17%;
+  margin-right: 18%;
   margin-top: 1.57%;
   z-index: 9999;
 }
 
 
 .download-icon {
-  position: absolute;
+  position: fixed;
   font-size: 16px;
-  opacity: 0.95;
+  opacity: 0.99;
   color: whitesmoke;
   margin-top: 2.48%;
   background-color: transparent;
   pointer-events: none;
   cursor: pointer;
   width: 30px;
-  margin-left: 80.5%;
+  margin-left: 79.5%;
   z-index: 9998;
 
 }
 
-.question-download {
-   position: relative;
-  cursor: pointer;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background-color: #1E90FF;
-  border-radius: 50%;
-  z-index: 9999;
-  color: white;
+.download-explanation {
+  position: fixed;
   font-size: 14px;
-  text-align: center;
-  line-height: 24px;
-  content: "?";
-  margin-left: 100%;
-  top: -22px;
+  font-weight: bold;
+  opacity: 0.95;
+  color: whitesmoke;
+  margin-top: 2.39%;
+  width: 18px;
+  height: 18px;
+  background-color: transparent;
+  pointer-events: auto;
+  cursor: pointer;
+  margin-left: 81.15%;
+  z-index: 9998;
+  border: 1px solid white; /* Add the border property */
 }
 
-.questionDownloadTooltip {
-  position: absolute;
-  top: -60px;
-  left: 300%;
-  transform: translateX(-50%);
-  background-color: #333;
-  color: #fff;
-  padding: 10px;
-  border-radius: 10px;
-  width: 200px;
-  font-size: 10px;
+
+.popup {
+  display: none;
+  position: fixed;
+
+  color: whitesmoke;
+  padding: 15px;
+  border-radius: 5px;
 }
+
+
+.delay-time {
+  color: #1E90FF;
+  font-weight: bold;
+}
+
 
 
 .demo-button {
@@ -687,7 +690,7 @@ font-weight: bold;
 
 #audioPlayer {
   display: none;
-  width: 60%;
+  width: 58%;
   height: 40px;
   background-color: transparent;
   position: fixed;
@@ -713,7 +716,7 @@ font-weight: bold;
 
 #gridAudioPlayer {
   display: block;
-  width: 60%;
+  width: 58%;
   height: 40px;
   background-color: transparent;
   position: fixed;
