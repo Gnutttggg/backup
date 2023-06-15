@@ -59,7 +59,7 @@ chordsDisplayElement.style.fontWeight = "bold";
 chordsDisplayElement.style.fontSize = "16px";
 chordsDisplayElement.style.fontStyle = "italic";
 chordsDisplayElement.style.color = "#666666";
-chordsDisplayElement.innerHTML = "First sound: " + chordsDisplay;
+chordsDisplayElement.innerHTML = "First sound(s): " + chordsDisplay;
 
 audioIntroElement.innerHTML = `${rhythmDisplay}&nbsp;&nbsp;&nbsp;${intensityDisplay}&nbsp;&nbsp;&nbsp;${colorDisplay}&nbsp;&nbsp;&nbsp;${instrumentDisplay}<br>`;
 
