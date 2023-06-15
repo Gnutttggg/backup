@@ -143,7 +143,7 @@ fileInput.addEventListener("change", function(event) {
       const intensitySelect = createDropDown("Sound", ["", "Dirty", "Clean", "Muted"], modal.content);
       const colorSelect = createDropDown("Color", ["", "Warm", "Cold", "Dark", "Bright"], modal.content);
       
-      const instrumentSelect = createDropDown("Instrument", ["", "Drum-and-bass", "Acoustic guitar", "Electric guitar", "Pluck", "Bass", "Strings", "Piano", "Pads", "Percussion", "Synth", "Flute", "Violin", "Brass", "Vocal", "Soul sample", "Sound FX", "Banjo", "Sitar", "Harmonica", "Ukulele", "Cymbals", "Organ", "Cello", "Trumpet", "Saxophone", "Harpsichord", "Triangle", "Tambourine", "Other"], modal.content);
+      const instrumentSelect = createDropDown("Instrument", ["", "Drum-and-bass", "Acoustic guitar", "Electric guitar", "Pluck", "Drums", "Bass", "Strings", "Piano", "Pads", "Percussion", "Synth", "Flute", "Violin", "Brass", "Vocal", "Soul sample", "Sound FX", "Banjo", "Sitar", "Harmonica", "Ukulele", "Cymbals", "Organ", "Cello", "Trumpet", "Saxophone", "Harpsichord", "Triangle", "Tambourine", "Other"], modal.content);
       const chordContainer = document.createElement("div");
 chordContainer.classList.add("chord-container");
       const chordSelects = [];
