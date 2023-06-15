@@ -139,11 +139,12 @@ fileInput.addEventListener("change", function(event) {
 
      
       // Create the intro description drop-down selections
-      const rhythmSelect = createDropDown("Rhythm", ["", "Dynamic", "Smooth", "Swingy"], modal.content);
+      const rhythmSelect = createDropDown("Rhythm ",  ["", "Dynamic", "Smooth", "Swingy"], modal.content);
+
       const intensitySelect = createDropDown("Sound", ["", "Dirty", "Clean", "Muted"], modal.content);
       const colorSelect = createDropDown("Color", ["", "Warm", "Cold", "Dark", "Bright"], modal.content);
       
-      const instrumentSelect = createDropDown("Instrument", ["", "Drum-and-bass", "Acoustic guitar", "Electric guitar", "Pluck", "Drums", "Bass", "Strings", "Piano", "Pads", "Percussion", "Synth", "Flute", "Violin", "Brass", "Vocal", "Soul sample", "Sound FX", "Banjo", "Sitar", "Harmonica", "Ukulele", "Cymbals", "Organ", "Cello", "Trumpet", "Saxophone", "Harpsichord", "Triangle", "Tambourine", "Other"], modal.content);
+      const instrumentSelect = createDropDown("Instrument", ["", "Drum-and-bass", "Acoustic guitar", "Electric guitar", "Pluck", "Bass", "Strings", "Piano", "Pads", "Percussion", "Synth", "Flute", "Violin", "Brass", "Vocal", "Soul sample", "Sound FX", "Banjo", "Sitar", "Harmonica", "Ukulele", "Cymbals", "Organ", "Cello", "Trumpet", "Saxophone", "Harpsichord", "Triangle", "Tambourine", "Other"], modal.content);
       const chordContainer = document.createElement("div");
 chordContainer.classList.add("chord-container");
       const chordSelects = [];
@@ -159,10 +160,109 @@ chordContainer.classList.add("chord-container");
       // Add a CSS class to the container elements -> To fix their position
       
       rhythmSelect.container.classList.add("dropdown-rhythm");
+      const questionRhythmSelect = document.createElement("span");
+questionRhythmSelect.innerHTML = "&#x3F;"; // HTML entity code for question mark
+questionRhythmSelect.classList.add("question-rhythm-select")
+rhythmSelect.container.appendChild(questionRhythmSelect);
+let questionRhythmSelectTextbox = null;
+
+questionRhythmSelect.addEventListener("mouseover", function() {
+  questionRhythmSelectTextbox = document.createElement("div");
+  questionRhythmSelectTextbox.textContent = "If it makes your head bop a lot, it's Dynamic. If it makes your head bop a little, it's Smooth. If it makes your head go side to side, it's Swingy.";
+  questionRhythmSelectTextbox.classList.add("questionRhythmSelectTooltip");
+
+  setTimeout(function() {
+    questionRhythmSelect.appendChild(questionRhythmSelectTextbox);
+  }, 500);
+});
+
+questionRhythmSelect.addEventListener("mouseout", function() {
+  if (questionRhythmSelectTextbox) {
+    questionRhythmSelectTextbox.remove();
+    questionRhythmSelectTextbox = null;
+  }
+});
+
+
+
       intensitySelect.container.classList.add("dropdown-intensity");
+      const questionIntensitySelect = document.createElement("span");
+questionIntensitySelect.innerHTML = "&#x3F;"; // HTML entity code for question mark
+questionIntensitySelect.classList.add("question-intensity-select")
+intensitySelect.container.appendChild(questionIntensitySelect);
+let questionIntensitySelectTextbox = null;
+
+questionIntensitySelect.addEventListener("mouseover", function() {
+  questionIntensitySelectTextbox = document.createElement("div");
+  questionIntensitySelectTextbox.textContent = "Pick the most appropriate option.";
+  questionIntensitySelectTextbox.classList.add("questionIntensitySelectTooltip");
+
+  setTimeout(function() {
+    questionIntensitySelect.appendChild(questionIntensitySelectTextbox);
+  }, 500);
+});
+
+questionIntensitySelect.addEventListener("mouseout", function() {
+  if (questionIntensitySelectTextbox) {
+    questionIntensitySelectTextbox.remove();
+    questionIntensitySelectTextbox = null;
+  }
+});
+
+
+
       colorSelect.container.classList.add("dropdown-color");
-      
+      const questionColorSelect = document.createElement("span");
+questionColorSelect.innerHTML = "&#x3F;"; // HTML entity code for question mark
+questionColorSelect.classList.add("question-color-select")
+colorSelect.container.appendChild(questionColorSelect);
+let questionColorSelectTextbox = null;
+
+questionColorSelect.addEventListener("mouseover", function() {
+  questionColorSelectTextbox = document.createElement("div");
+  questionColorSelectTextbox.textContent = "Pick the most appropriate option.";
+  questionColorSelectTextbox.classList.add("questionColorSelectTooltip");
+
+  setTimeout(function() {
+    questionColorSelect.appendChild(questionColorSelectTextbox);
+  }, 500);
+});
+
+questionColorSelect.addEventListener("mouseout", function() {
+  if (questionColorSelectTextbox) {
+    questionColorSelectTextbox.remove();
+    questionColorSelectTextbox = null;
+  }
+});
+
+
+
       instrumentSelect.container.classList.add("dropdown-instrument");
+      const questionInstrumentSelect = document.createElement("span");
+questionInstrumentSelect.innerHTML = "&#x3F;"; // HTML entity code for question mark
+questionInstrumentSelect.classList.add("question-instrument-select")
+instrumentSelect.container.appendChild(questionInstrumentSelect);
+let questionInstrumentSelectTextbox = null;
+
+questionInstrumentSelect.addEventListener("mouseover", function() {
+  questionInstrumentSelectTextbox = document.createElement("div");
+  questionInstrumentSelectTextbox.textContent = "Pick the instrument that should get the most attention.";
+  questionInstrumentSelectTextbox.classList.add("questionInstrumentSelectTooltip");
+
+  setTimeout(function() {
+    questionInstrumentSelect.appendChild(questionInstrumentSelectTextbox);
+  }, 500);
+});
+
+questionInstrumentSelect.addEventListener("mouseout", function() {
+  if (questionInstrumentSelectTextbox) {
+    questionInstrumentSelectTextbox.remove();
+    questionInstrumentSelectTextbox = null;
+  }
+});
+
+
+
       genreSelect.container.classList.add("dropdown-genre");
       keySelect.container.classList.add("dropdown-key");
 
@@ -646,7 +746,7 @@ newGridItem.appendChild(contentContainer);
 
       // Add the drop-downs and submit button to the modal dialog
       const rhythmHeading = document.createElement("h3");
-rhythmHeading.textContent = "The first second:";
+rhythmHeading.textContent = "Describe your intro:";
 rhythmHeading.classList.add("rhythm-heading");
 
       // Create a span element for the question mark icon
@@ -658,7 +758,7 @@ let questionRhythmTextbox = null;
 
 questionRhythm.addEventListener("mouseover", function() {
   questionRhythmTextbox = document.createElement("div");
-  questionRhythmTextbox.textContent = "Pick the best options that best describe the intro your track's intro";
+  questionRhythmTextbox.textContent = "Pick the most appropriate options to describe your intro section (NOT the whole track).";
   questionRhythmTextbox.classList.add("questionRhythmTooltip");
 
   setTimeout(function() {
@@ -684,7 +784,7 @@ let questionChordTextbox = null;
 
 questionChord.addEventListener("mouseover", function() {
   questionChordTextbox = document.createElement("div");
-  questionChordTextbox.textContent = "Pick the chord progression in the main section of your track";
+  questionChordTextbox.textContent = "Pick the chord progression in the main section of your track.";
   questionChordTextbox.classList.add("questionChordTooltip");
 
   setTimeout(function() {
@@ -1473,7 +1573,7 @@ eqNode3.gain.value = -4.5; // Adjust the gain as needed
 const eqNode4 = audioContext.createBiquadFilter();
 eqNode4.type = 'peaking';
 eqNode4.frequency.value = 5000; 
-eqNode4.gain.value = 2.4; // Adjust the gain as needed
+eqNode4.gain.value = 2.3; // Adjust the gain as needed
 
 const eqNode5 = audioContext.createBiquadFilter();
 eqNode5.type = 'lowpass';
@@ -1510,7 +1610,7 @@ filter4.connect(eqNode3);
 const eqNode6 = audioContext.createBiquadFilter();
 eqNode6.type = 'peaking';
 eqNode6.frequency.value = 7700; // Adjust the frequency as needed
-eqNode6.gain.value = 1.6; // Adjust the gain as needed
+eqNode6.gain.value = 1.5; // Adjust the gain as needed
 const eqNode7 = audioContext.createBiquadFilter();
 eqNode7.type = 'peaking';
 eqNode7.frequency.value = 9000; // Adjust the frequency as needed
