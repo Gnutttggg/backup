@@ -1,18 +1,18 @@
 const chordFiltersContainer = document.getElementById("chordFiltersContainer");
 
 const labelElement = document.createElement("label");
-labelElement.textContent = "Main Progression: ";
+labelElement.textContent = "Intro Instrument(s)";
 labelElement.style.fontWeight = "bold";
 labelElement.style.fontSize = "1.5em";
 
 chordFiltersContainer.appendChild(labelElement);
 
-for (let i = 1; i <= 8; i++) {
+for (let i = 1; i <= 3; i++) {
   const selectElement = document.createElement("select");
   selectElement.id = `chordFilter${i}`;
 
 
-  const chordOptions = ["", "I", "ii", "II", "iii", "III", "iv", "IV", "v", "V", "vi", "VI", "vii"];
+  const chordOptions = ["", "Drum-and-bass", "Acoustic guitar", "Electric guitar", "Pluck", "Bass", "Strings", "Piano", "Pads", "Percussion", "Synth", "Flute", "Violin", "Brass", "Vocal", "Soul sample", "Sound FX", "Banjo", "Sitar", "Harmonica", "Ukulele", "Cymbals", "Organ", "Cello", "Trumpet", "Saxophone", "Harpsichord", "Triangle", "Tambourine", "Other"];
   chordOptions.forEach(function(chord) {
     const optionElement = document.createElement("option");
     optionElement.value = chord;
@@ -30,7 +30,7 @@ for (let i = 1; i <= 8; i++) {
 function filterGridItems() {
   const selectedChords = [];
 
-  for (let i = 1; i <= 8; i++) {
+  for (let i = 1; i <= 3; i++) {
     const selectElement = document.getElementById(`chordFilter${i}`);
     const selectedChord = selectElement.value;
     selectedChords.push(selectedChord);
