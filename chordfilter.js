@@ -12,7 +12,7 @@ for (let i = 1; i <= 8; i++) {
   selectElement.id = `chordFilter${i}`;
 
 
-  const chordOptions = ["", "I", "ii", "iii", "IV", "V", "vi", "vii"];
+  const chordOptions = ["", "I", "ii", "II", "iii", "III", "iv", "IV", "v", "V", "vi", "VI", "vii"];
   chordOptions.forEach(function(chord) {
     const optionElement = document.createElement("option");
     optionElement.value = chord;
